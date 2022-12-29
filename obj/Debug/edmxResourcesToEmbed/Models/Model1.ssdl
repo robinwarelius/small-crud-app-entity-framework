@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HiltonDeluxeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bokning">
+    <Key>
+      <PropertyRef Name="BokningID" />
+    </Key>
+    <Property Name="BokningID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AnkomstDatum" Type="datetime" Nullable="false" />
+    <Property Name="AvreseDatum" Type="datetime" Nullable="false" />
+    <Property Name="KundID" Type="int" Nullable="false" />
+    <Property Name="RumID" Type="int" Nullable="false" />
+    <Property Name="ExtraSang" Type="int" />
+    <Property Name="BokningDatum" Type="datetime" />
+    <Property Name="FakturaID" Type="int" />
+  </EntityType>
+  <EntityType Name="Faktura">
+    <Key>
+      <PropertyRef Name="FakturaID" />
+    </Key>
+    <Property Name="FakturaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Belopp" Type="int" Nullable="false" />
+    <Property Name="Hanterad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BokningID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kund">
+    <Key>
+      <PropertyRef Name="KundID" />
+    </Key>
+    <Property Name="KundID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ForNamn" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EfterNamn" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rum">
+    <Key>
+      <PropertyRef Name="RumID" />
+    </Key>
+    <Property Name="RumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RumTypID" Type="int" Nullable="false" />
+    <Property Name="RumNamn" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pris" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RumTyp">
+    <Key>
+      <PropertyRef Name="RumTypID" />
+    </Key>
+    <Property Name="RumTypID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RumTyp" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Bokning__Faktura__36B12243">
+    <End Role="Faktura" Type="Self.Faktura" Multiplicity="0..1" />
+    <End Role="Bokning" Type="Self.Bokning" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faktura">
+        <PropertyRef Name="FakturaID" />
+      </Principal>
+      <Dependent Role="Bokning">
+        <PropertyRef Name="FakturaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bokning__KundID__31EC6D26">
+    <End Role="Kund" Type="Self.Kund" Multiplicity="1" />
+    <End Role="Bokning" Type="Self.Bokning" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kund">
+        <PropertyRef Name="KundID" />
+      </Principal>
+      <Dependent Role="Bokning">
+        <PropertyRef Name="KundID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bokning__RumID__32E0915F">
+    <End Role="Rum" Type="Self.Rum" Multiplicity="1" />
+    <End Role="Bokning" Type="Self.Bokning" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rum">
+        <PropertyRef Name="RumID" />
+      </Principal>
+      <Dependent Role="Bokning">
+        <PropertyRef Name="RumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Faktura__Bokning__35BCFE0A">
+    <End Role="Bokning" Type="Self.Bokning" Multiplicity="1" />
+    <End Role="Faktura" Type="Self.Faktura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bokning">
+        <PropertyRef Name="BokningID" />
+      </Principal>
+      <Dependent Role="Faktura">
+        <PropertyRef Name="BokningID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rum__RumTypID__2F10007B">
+    <End Role="RumTyp" Type="Self.RumTyp" Multiplicity="1" />
+    <End Role="Rum" Type="Self.Rum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RumTyp">
+        <PropertyRef Name="RumTypID" />
+      </Principal>
+      <Dependent Role="Rum">
+        <PropertyRef Name="RumTypID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HiltonDeluxeModelStoreContainer">
+    <EntitySet Name="Bokning" EntityType="Self.Bokning" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faktura" EntityType="Self.Faktura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kund" EntityType="Self.Kund" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rum" EntityType="Self.Rum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RumTyp" EntityType="Self.RumTyp" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Bokning__Faktura__36B12243" Association="Self.FK__Bokning__Faktura__36B12243">
+      <End Role="Faktura" EntitySet="Faktura" />
+      <End Role="Bokning" EntitySet="Bokning" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bokning__KundID__31EC6D26" Association="Self.FK__Bokning__KundID__31EC6D26">
+      <End Role="Kund" EntitySet="Kund" />
+      <End Role="Bokning" EntitySet="Bokning" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bokning__RumID__32E0915F" Association="Self.FK__Bokning__RumID__32E0915F">
+      <End Role="Rum" EntitySet="Rum" />
+      <End Role="Bokning" EntitySet="Bokning" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Faktura__Bokning__35BCFE0A" Association="Self.FK__Faktura__Bokning__35BCFE0A">
+      <End Role="Bokning" EntitySet="Bokning" />
+      <End Role="Faktura" EntitySet="Faktura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rum__RumTypID__2F10007B" Association="Self.FK__Rum__RumTypID__2F10007B">
+      <End Role="RumTyp" EntitySet="RumTyp" />
+      <End Role="Rum" EntitySet="Rum" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

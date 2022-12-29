@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f8bd9beb1801430cb76e8af58987d428" Name="Diagram1">
+        <EntityTypeShape EntityType="HiltonDeluxeModel.Bokning" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HiltonDeluxeModel.Faktura" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HiltonDeluxeModel.Kund" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HiltonDeluxeModel.Rum" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HiltonDeluxeModel.RumTyp" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="HiltonDeluxeModel.FK__Bokning__Faktura__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="HiltonDeluxeModel.FK__Bokning__KundID__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="HiltonDeluxeModel.FK__Bokning__RumID__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="HiltonDeluxeModel.FK__Faktura__Bokning__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="HiltonDeluxeModel.FK__Rum__RumTypID__2F10007B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

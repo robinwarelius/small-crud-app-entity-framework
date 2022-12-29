@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HiltonDeluxeModelStoreContainer" CdmEntityContainer="HiltonDeluxeEntities8">
+    <EntitySetMapping Name="Bokning">
+      <EntityTypeMapping TypeName="HiltonDeluxeModel.Bokning">
+        <MappingFragment StoreEntitySet="Bokning">
+          <ScalarProperty Name="BokningID" ColumnName="BokningID" />
+          <ScalarProperty Name="AnkomstDatum" ColumnName="AnkomstDatum" />
+          <ScalarProperty Name="AvreseDatum" ColumnName="AvreseDatum" />
+          <ScalarProperty Name="KundID" ColumnName="KundID" />
+          <ScalarProperty Name="RumID" ColumnName="RumID" />
+          <ScalarProperty Name="ExtraSang" ColumnName="ExtraSang" />
+          <ScalarProperty Name="BokningDatum" ColumnName="BokningDatum" />
+          <ScalarProperty Name="FakturaID" ColumnName="FakturaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faktura">
+      <EntityTypeMapping TypeName="HiltonDeluxeModel.Faktura">
+        <MappingFragment StoreEntitySet="Faktura">
+          <ScalarProperty Name="FakturaID" ColumnName="FakturaID" />
+          <ScalarProperty Name="Belopp" ColumnName="Belopp" />
+          <ScalarProperty Name="Hanterad" ColumnName="Hanterad" />
+          <ScalarProperty Name="BokningID" ColumnName="BokningID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kund">
+      <EntityTypeMapping TypeName="HiltonDeluxeModel.Kund">
+        <MappingFragment StoreEntitySet="Kund">
+          <ScalarProperty Name="KundID" ColumnName="KundID" />
+          <ScalarProperty Name="ForNamn" ColumnName="ForNamn" />
+          <ScalarProperty Name="EfterNamn" ColumnName="EfterNamn" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rum">
+      <EntityTypeMapping TypeName="HiltonDeluxeModel.Rum">
+        <MappingFragment StoreEntitySet="Rum">
+          <ScalarProperty Name="RumID" ColumnName="RumID" />
+          <ScalarProperty Name="RumTypID" ColumnName="RumTypID" />
+          <ScalarProperty Name="RumNamn" ColumnName="RumNamn" />
+          <ScalarProperty Name="Pris" ColumnName="Pris" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RumTyp">
+      <EntityTypeMapping TypeName="HiltonDeluxeModel.RumTyp">
+        <MappingFragment StoreEntitySet="RumTyp">
+          <ScalarProperty Name="RumTypID" ColumnName="RumTypID" />
+          <ScalarProperty Name="RumTyp1" ColumnName="RumTyp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
