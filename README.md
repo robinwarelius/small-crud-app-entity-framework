@@ -1,1 +1,1 @@
-# Hotel-app
+A small fictional hotel app. C#/Entity Framwork.
